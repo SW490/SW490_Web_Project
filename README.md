@@ -31,16 +31,36 @@
   7. Cart List Page
 
 # 화면 설계 | 画面設計
+>loginPage
+
+
 ![loginPage](https://github.com/user-attachments/assets/473ae016-7961-4c9f-a78b-bda53b296448)
+>joinPage
+
 
 ![joinPage](https://github.com/user-attachments/assets/f00cdf47-97f1-46bc-8b60-ff041ad5f0ab)
+>gdsListPage
+
 
 ![gdsListPage](https://github.com/user-attachments/assets/bc48b41f-e530-45c0-b304-793c0b4c3f5e)
+>gdsViewPage
+
 
 ![gdsViewPage](https://github.com/user-attachments/assets/f2436f5b-3791-47d7-acf9-53e442dac4b3)
+>adminIndexPage
+
 
 ![adminIndexPage](https://github.com/user-attachments/assets/49d43edc-d46e-4312-af03-18504d2d6036)
+>cartListPage
+
 
 ![cartListPage](https://github.com/user-attachments/assets/62f19ec9-80d0-4336-bf40-bc6eef2ad7d0)
 
 # DB 모델링 | DBモデリング
+>TABLE and Relationship
+
+
+![DB1](https://github.com/user-attachments/assets/f9b15f17-fc61-49bd-a855-293f40649220)
+
+
+![DB2](https://github.com/user-attachments/assets/dc09732c-79cd-44f9-8585-3970def80d6d)
