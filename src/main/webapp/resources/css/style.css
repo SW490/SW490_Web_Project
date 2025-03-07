@@ -1,0 +1,149 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+html, html * {
+  font-family: "Pretendard-Regular";
+  font-weight: 400;
+  font-style: normal;
+}
+
+html body .w-5 {
+  width: 1% !important;
+}
+html body .bg-gradient-primary {
+  background-color: #4e73df;
+  background-size: cover;
+  background-image: linear-gradient(180deg, #f54d8f 10%, #3774ff 100%);
+}
+html body .bg-gradient-primary2 {
+  background-color: #4e73df;
+  background-size: cover;
+  background-image: linear-gradient(180deg, #f54d8f 10%, #3774ff 100%);
+}
+html body .o-hidden {
+  overflow: hidden !important;
+}
+html body .bg-login-image {
+  background: url(../images/1.jpg);
+  background-position: center;
+  background-size: cover;
+}
+html body .text-gray-900 {
+  color: #3a3b45 !important;
+}
+html body .form-control-user {
+  font-size: 0.8rem;
+  border-radius: 10rem;
+  padding: 1.5rem 1rem;
+}
+html body .small {
+  font-size: 80%;
+  font-weight: 400;
+}
+html body .btn-user {
+  font-size: 0.8rem;
+  border-radius: 10rem;
+  padding: 0.75rem 1rem;
+}
+html body .btn-block {
+  display: block;
+  width: 100%;
+}
+html body .bg-register-image {
+  background: url("../images/3.jpg");
+  background-position: center;
+  background-size: cover;
+}
+html body .btn-google {
+  color: #fff;
+  background-color: #ea4335;
+}
+html body .btn-facebook {
+  color: #fff;
+  background-color: #3b5998;
+}
+html body .btn-kakao {
+  color: #000;
+  background-color: #fee500;
+}
+html body .w-10 {
+  width: 10% !important;
+}
+html body .w-90 {
+  width: 90% !important;
+}
+html body .thumb {
+  width: 100px !important;
+  max-width: 100%;
+  height: 56px !important;
+}
+html body .text-orange {
+  color: orange !important;
+  font-weight: 800 !important;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+/*#myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+#myBtn:hover {
+  background: #ddd;
+  color: black;
+}*/
+.replyModal {
+  z-index: 2;
+  display: none;
+}
+.replyModal .modalContent {
+  z-index: 15;
+  position: fixed;
+  top: 20%;
+  left: calc(50% - 250px);
+  width: 530px;
+  height: 300px;
+  padding: 20px 10px;
+  background-color: #fff;
+  border: 2px solid #666;
+}
+.replyModal .modalContent div textarea {
+  font-size: 1.15rem;
+  padding: 0.8rem;
+  width: 500px;
+  height: 200px;
+}
+
+.modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}/*# sourceMappingURL=style.css.map */

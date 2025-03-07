@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.shop.mappers.adminMapper">
+<!-- 카테고리 호출 -->
+<select id="category" resultType="com.my.shop.vo.CategoryVO">
+<![CDATA[
+select
+level, cateName, cateCode, cateCodeRef
+from goods_category
+start with cateCodeRef is null connect by prior cateCode = cateCoderef
+]]>
+</select>
+<insert id="register" parameterType="com.my.shop.vo.GoodsVO">
+<![CDATA[
+insert into tbl_goods(gdsNum, gdsName, cateCode, gdsPrice, gdsStock, gdsDes, gdsProtein, gdsImg, gdsThumbImg)
+values
+(seq_gdsNum.nextval, #{gdsName}, #{cateCode}, #{gdsPrice}, #{gdsStock}, #{gdsDes}, #{gdsProtein}, #{gdsImg}, #{gdsThumbImg})
+]]>
+</insert>
+<!-- 상품목록 -->
+<select id="goodslist" resultType="com.my.shop.vo.GoodsVO">
+<![CDATA[
+select
+gdsNum, gdsName, cateCode, gdsPrice, gdsStock, gdsDes, gdsProtein, gdsImg, gdsThumbImg, gdsDate
+from tbl_goods
+order by gdsNum desc
+]]>
+</select>
+<select id="goodsView" resultType="com.my.shop.vo.GoodsViewVO">
+<![CDATA[
+select 
+gdsNum, gdsName, g.cateCode, c.cateCodeRef, c.cateName, gdsPrice, gdsStock, gdsDes, gdsProtein, gdsImg, gdsDate
+from tbl_goods g
+inner join goods_category c
+on g.cateCode = c.cateCode
+where g.gdsNum = #{gdsNum}
+]]>
+</select>
+<!-- 
+Join: 두 개 이상의 테이블에서 관련 열을 기준으로 행을 결합
+내부 조인[Inner Join]: 두 테이블에서 일치하는 값을 가진 레코드를 선택
+왼쪽/오른쪽 조인[Left/Right Join]: 왼쪽/오른쪽 테이블의 모든 레코드와 오른쪽/왼쪽 테이블의 일치하는 레코드를 리턴
+전체[Full]: 양쪽 테이블 레코드에서 일치하는 모든 레코드 리턴
+셀프[Self]: 테이블 자체가 자체적으로 조인됩니다
+
+별칭) tbl_goods.gdsNum 간단한 별칭 -> g.gdsNum
+import numpy as np
+xpoint = np.array([0, 6])
+ -->
+<update id="goodsModify">
+<![CDATA[
+update tbl_goods 
+set 
+gdsName = #{gdsName}, cateCode = #{cateCode}, gdsPrice = #{gdsPrice}, gdsStock = #{gdsStock}, gdsDes = #{gdsDes}, gdsProtein = #{gdsProtein}, gdsImg = #{gdsImg}, gdsThumbImg = #{gdsThumbImg}
+where gdsNum = ${gdsNum}
+]]>
+</update>
+<delete id="goodsDelete">
+<![CDATA[
+delete tbl_goods where gdsNum = #{gdsNum}
+]]>
+</delete>
+<!-- orderList -->
+<insert id="addCart">
+<![CDATA[
+insert into tbl_cart(cartNum, userId, gdsNum, cartStock)
+values
+(seq_tbl_cart.nextval, #{userId}, #{gdsNum}, #{cartStock})
+]]>
+</insert>
+<select id="cartList" resultType="com.my.shop.vo.CartListVO">
+<![CDATA[
+select row_number() over(order by c.cartNum desc) as num,
+c.cartNum, c.userId, c.gdsNum, c.cartStock, c.addDate,
+g.gdsName, g.gdsPrice, g.gdsThumbImg
+from tbl_cart c
+inner join tbl_goods g
+on c.gdsNum = g.gdsNum
+where c.userId = #{userId}
+]]>
+</select>
+<select id="orderList" resultType="com.my.shop.vo.OrderVO">
+<![CDATA[
+select orderId, userId, orderRec, userAddr1, userAddr2, userAddr3, orderPhone, amount, orderDate, delivery
+from tbl_order
+]]>
+</select>
+<select id="orderView" resultType="com.my.shop.vo.OrderListVO">
+<![CDATA[
+select o.orderId, o.userId, o.orderRec, o.userAddr1, o.userAddr2, o.userAddr3, o.orderPhone, o.amount, o.orderDate, o.delivery
+d.orderDetailsNum, d.gdsNum, d.cartStock,
+g.gdsName, g.gdsThumbImg, g.gdsPrice
+from tbl_order o
+inner join tbl_order_details d
+on o.orderId = d.orderId
+inner join tbl_goods g
+on d.gdsNum = g.gdsNum
+where orderId = #{orderId}
+]]>
+</select>
+<update id="delivery">
+<![CDATA[
+update tbl_order set delivery = #{delivery} where orderId = #{orderId}
+]]>
+</update>
+<update id="changeStock">
+<![CDATA[
+update tbl_goods set gdsStock = gdsStock - #{gdsStock}
+where gdsNum = #{gdsNum}
+]]>
+</update>
+<select id="allReply" resultType="com.my.shop.vo.ReplyListVO">
+<![CDATA[
+select r.gdsNum, r.userId, r.repNum, r.repCon, r.repDate,
+m.userName
+from tbl_reply r
+inner join tbl_member m
+on r.userId = m.userId
+]]>
+</select>
+<delete id="deleteReply">
+<![CDATA[
+delete tbl_reply where repNum = #{repNum}
+]]>
+</delete>
+</mapper>

@@ -1,0 +1,80 @@
+
+
+@import "font";
+
+html, html *{
+        font-family: 'Pretendard-Regular';
+        font-weight: 400;
+        font-style: normal
+}
+
+html{
+    body{
+        .w-5{width:1% !important;}
+        .bg-gradient-primary{
+        background-color: #4e73df;
+        background-size:cover ;
+        background-image:linear-gradient(180deg, #f54d8f 10%, #3774ff 100%);
+        }
+        .bg-gradient-primary2{
+        background-color: #4e73df;
+        background-size:cover ;
+        background-image:linear-gradient(180deg, #f54d8f 10%, #3774ff 100%);
+        }
+        .o-hidden{
+        overflow:hidden !important;
+        }
+        .bg-login-image{
+        background:url(../images/1.jpg);
+        background-position: center;
+        background-size:cover;
+        }
+        .text-gray-900{
+        color:#3a3b45 !important;
+        }
+        .form-control-user{
+        font-size:.8rem; border-radius: 10rem; padding:1.5rem 1rem;
+        }
+        .small{
+        font-size:80%; font-weight:400;
+        }
+        .btn-user{
+        font-size:.8rem; border-radius:10rem; padding:.75rem 1rem;
+        }
+        .btn-block{
+        display:block; width:100%;
+        }
+        .bg-register-image{
+         background:url("../images/3.jpg");
+         background-position: center; 
+         background-size: cover;  
+        }
+        .btn-google{
+color:#fff; background-color: #ea4335;            
+        }
+        .btn-facebook{
+color:#fff; background-color: #3b5998;            
+        }
+.btn-kakao{
+color:#000; background-color:#fee500 ;
+}
+.w-10{
+width:10% !important;
+}
+.w-90{
+width:90% !important;
+}
+.thumb{//16:9
+width:100px !important;
+max-width: 100%;
+height:56px !important
+}
+.text-orange{
+color:orange !important;
+font-weight: 800 !important;
+}
+
+    }
+}
+@import "video";
+@import "modal";
