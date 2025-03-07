@@ -31,6 +31,6 @@
   7. Cart List Page
 
 # 화면 설계 | 画面設計
-
+![Image](https://github.com/user-attachments/assets/ff569095-73e7-48ab-b031-b49bc9471c89)
 
 # DB 모델링 | DBモデリング
