@@ -2,6 +2,7 @@
 > 開発期間 | 2024年12月 ~ 2025年02月
 > 
 > 製作者 | Park Sion パクシオン | psw0097@hanyang.ac.kr
+>
 > 履歴書 | https://buly.kr/3CNbGtM
 
 ## User | 主なユーザー
